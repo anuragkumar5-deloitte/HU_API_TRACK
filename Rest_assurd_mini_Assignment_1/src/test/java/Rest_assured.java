@@ -1,6 +1,9 @@
 import static io.restassured.RestAssured.*;
 import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+
+import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -20,8 +23,16 @@ public class Rest_assured {
                     .statusCode(200)
                     .body(containsString("title"));
         }
-
         @Test(priority = 2)
+        public void validateUserID() {
+            Response response = given().
+                    when().
+                    get("https://jsonplaceholder.typicode.com/posts").
+
+                    then().extract().response();
+            assertThat(response.path("[39].userId"), is(equalTo(4)));
+        }
+        @Test(priority = 3)
         public void testPut_call(){
 
             File jsonData = new File("C:\\Users\\anuragkumar5\\Desktop\\Files\\HU_API_TRACK\\Assignment_Ans\\Rest_assurd_mini_Assignment_1\\src\\test\\resources\\Post.json");
