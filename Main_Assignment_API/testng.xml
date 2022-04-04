@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite">
+    <listeners>
+        <listener class-name="TestListener" />
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/anuragkumar5/Desktop/Files/HU_API_TRACK/Assignment_Ans/Main_Assignment_API">
+        <classes>
+                <class name="RegisterUserTest"/>
+                <class name="LoginAndLogoutUserTest"/>
+                <class name="AddTaskTest"/>
+                <class name="GetAllTaskTest"/>
+        <classes/>
+    </test>
+</suite>
